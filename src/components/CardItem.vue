@@ -1,6 +1,6 @@
 <template>
     <div :class="getClass(item)"
-        v-for="(item, index) in reverseVaccine()" 
+        v-for="(item, index) in this.$store.getters.getVaccine" 
         :key="item">
         <div @click="doneVaccine(index)" class="bg-warning d-flex align-items-center ms-3 p-2 h-50 rounded done-vaccine">
             <img src="../assets/vaccine.png" alt="icon vaccine">
@@ -21,22 +21,14 @@
         </div>
         
         <button @click="removeDate(index)" type="button" class="btn text-danger  me-1" aria-label="Close"><img src="../assets/bin.png" alt="icon bin"></button>
-            
+        <button data-bs-toggle="modal" data-bs-target="#exampleModal">edit</button>
     </div>
 </template>
 
 <script>
 export default {
     name: 'CardItem',
-    data() {
-        return {
-            teste: true
-        }
-    },
     methods: {
-        reverseVaccine() {
-            return this.$store.getters.getVaccine
-        },
         removeDate(index) {
             this.$store.dispatch('removeDate', index)
         },
@@ -48,7 +40,11 @@ export default {
             'd-flex py-2 mb-3 w-100 mx-auto align-items-center shadow-sm card-item': !item.done,
             'd-flex py-2 mb-3 w-100 mx-auto align-items-center shadow-sm text-decoration-line-through card-item-done': item.done
             }
-        }
+        },
+        // editDate(index) {
+        //     this.$store.commit('editDate', index)
+        // }
+
     }
 }
 </script>

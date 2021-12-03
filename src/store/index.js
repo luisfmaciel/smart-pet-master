@@ -23,6 +23,9 @@ export default createStore({
     checkVaccine(state, payload) {
       state.dateVaccine[payload].done = !state.dateVaccine[payload].done
       window.localStorage.setItem('saveVaccine', JSON.stringify(state.dateVaccine))
+    },
+    editDate(state, payload) {
+      state.dateVaccine[payload]
     }
 
   },

@@ -1,6 +1,6 @@
 <template>
     <div class="">
-        <img src="../assets/pet-main.jpg" class="adjust-img position-absolute   " alt="pet pattern">
+        <img src="../assets/pet-main.jpg" class="adjust-img position-absolute" alt="pet pattern">
     </div>
     <div class="d-flex row col-md-12 align-items-center bg-light h-100">
         <div class="d-flex justify-content-center col-md-4 box-add">
@@ -21,18 +21,15 @@
             </div>
         </div>
     </div>
-    <Modal/>
 </template>
 
 <script>
 import CardItem from '../components/CardItem.vue'
-import Modal from '../components/Modal.vue'
 
 export default {
     name: 'VaccineCard',
     components: {
-        CardItem,
-        Modal
+        CardItem
     }
 }
 </script>

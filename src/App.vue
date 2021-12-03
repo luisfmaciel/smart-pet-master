@@ -2,6 +2,7 @@
   <div id="container" class="vh-100">
     <Navbar/>
     <router-view/>
+    <Modal/>
   </div>
   <Footer/> 
 </template>
@@ -9,12 +10,14 @@
 <script>
 import Navbar from './components/Navbar.vue'
 import Footer from './components/Footer.vue'
+import Modal from './components/Modal.vue'
 
 export default {
   name: 'App',
   components: {
     Navbar,
     Footer,
+    Modal
   }
 }
 </script>

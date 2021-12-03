@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import RegisterPet from '../components/RegisterPet.vue'
+import RegisterPet from '../view/RegisterPet.vue'
 import VaccineCard from '../view/VaccineCard.vue'
 
 const routes = [
