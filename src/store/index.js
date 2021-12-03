@@ -5,7 +5,11 @@ import dateVaccine from '../data/dateVaccine.js'
 export default createStore({
   state: {
     pet: pet,
-    dateVaccine: dateVaccine
+    dateVaccine: dateVaccine,
+    update: {
+      idx: '',
+      edit: false
+    }
   },
   mutations: {
     createNewPet(state, payload) {
@@ -16,6 +20,10 @@ export default createStore({
       state.dateVaccine.push(payload)
       window.localStorage.setItem('saveVaccine', JSON.stringify(state.dateVaccine))
     },
+    updateVacinne(state, payload) {
+      state.dateVaccine[state.update.idx] = payload
+        window.localStorage.setItem('saveVaccine', JSON.stringify(state.dateVaccine))
+    },
     removeVaccine(state, payload) {
       state.dateVaccine.splice(payload, 1)
       window.localStorage.setItem('saveVaccine', JSON.stringify(state.dateVaccine))
@@ -24,14 +32,21 @@ export default createStore({
       state.dateVaccine[payload].done = !state.dateVaccine[payload].done
       window.localStorage.setItem('saveVaccine', JSON.stringify(state.dateVaccine))
     },
-    editDate(state, payload) {
-      state.dateVaccine[payload]
+    editVaccine(state, payload) {
+      state.update = payload
     }
-
+    
   },
   actions: {
     saveVaccine(context, payload) {
-      context.commit('saveNewVaccine', payload)
+      let update = this.state.update
+      if(update.edit) {
+        context.commit('updateVacinne', payload)
+        update.idx = "",
+        update.edit = false
+      } else {
+        context.commit('saveNewVaccine', payload)
+      }
     },
     removeDate(context, payload) {
       context.commit('removeVaccine', payload)
@@ -41,6 +56,9 @@ export default createStore({
     },
     doneVaccine(context, payload) {
       context.commit('checkVaccine', payload)
+    },
+    editDate(context, payload) {
+      context.commit('editVaccine', payload)
     }
   }, 
   getters: {

@@ -21,7 +21,7 @@
         </div>
         
         <button @click="removeDate(index)" type="button" class="btn text-danger  me-1" aria-label="Close"><img src="../assets/bin.png" alt="icon bin"></button>
-        <button data-bs-toggle="modal" data-bs-target="#exampleModal">edit</button>
+        <button @click="editDate(index)" data-bs-toggle="modal" data-bs-target="#exampleModal">edit</button>
     </div>
 </template>
 
@@ -41,9 +41,14 @@ export default {
             'd-flex py-2 mb-3 w-100 mx-auto align-items-center shadow-sm text-decoration-line-through card-item-done': item.done
             }
         },
-        // editDate(index) {
-        //     this.$store.commit('editDate', index)
-        // }
+        editDate(index) {
+            const obj = {
+                idx: index,
+                edit: true
+            }
+            this.$store.dispatch('editDate', obj)
+            console.log(obj);
+        }
 
     }
 }
