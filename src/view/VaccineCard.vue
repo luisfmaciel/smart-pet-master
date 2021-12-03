@@ -6,7 +6,7 @@
         <div class="d-flex justify-content-center col-md-4 box-add">
             <div class="text-center card p-4 shadow border-0 rounded">
                 <p class="fw-bold fs-4">Add new date</p>
-                <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="fs-1 text-warning btn-add">+</span>
+                <span @click="editDate()" data-bs-toggle="modal" data-bs-target="#exampleModal" class="fs-1 text-warning btn-add">+</span>
             </div>
         </div>
         <div class="col-md-8 adjust-height mt-5 overflow-auto bg-light">
@@ -30,6 +30,15 @@ export default {
     name: 'VaccineCard',
     components: {
         CardItem
+    },
+    methods: {
+        editDate() {
+            const obj = {
+                idx: '',
+                edit: false
+            }
+            this.$store.dispatch('editDate', obj)
+        }
     }
 }
 </script>

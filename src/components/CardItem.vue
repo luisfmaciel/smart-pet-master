@@ -3,7 +3,7 @@
         v-for="(item, index) in this.$store.getters.getVaccine" 
         :key="item">
         <div @click="doneVaccine(index)" class="bg-warning d-flex align-items-center ms-3 p-2 h-50 rounded done-vaccine">
-            <img src="../assets/vaccine.png" alt="icon vaccine">
+            <input type="checkbox" :checked="item.done">
         </div>
         <div class="d-flex justify-content-evenly w-100">   
             <div class="text-center">
@@ -21,7 +21,7 @@
         </div>
         
         <div class="d-flex flex-column">
-            <button @click="removeDate(index)" type="button" class="btn button" aria-label="Close"><i class="bi bi-trash fs-4"></i></button>
+            <button @click="removeDate(index)" type="button" class="btn button"><i class="bi bi-trash fs-4"></i></button>
             <button @click="editDate(index)" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" class="btn button"><i class="bi bi-pencil-square fs-5"></i></button>
         </div>
     </div>
