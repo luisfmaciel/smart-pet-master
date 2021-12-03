@@ -20,8 +20,10 @@
             </div>
         </div>
         
-        <button @click="removeDate(index)" type="button" class="btn text-danger  me-1" aria-label="Close"><img src="../assets/bin.png" alt="icon bin"></button>
-        <button @click="editDate(index)" data-bs-toggle="modal" data-bs-target="#exampleModal">edit</button>
+        <div class="d-flex flex-column">
+            <button @click="removeDate(index)" type="button" class="btn button" aria-label="Close"><i class="bi bi-trash fs-4"></i></button>
+            <button @click="editDate(index)" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" class="btn button"><i class="bi bi-pencil-square fs-5"></i></button>
+        </div>
     </div>
 </template>
 
@@ -35,10 +37,10 @@ export default {
         doneVaccine(index) {
             this.$store.dispatch('doneVaccine', index)
         },
-        getClass(item) {
+        getClass(vaccine) {
             return {
-            'd-flex py-2 mb-3 w-100 mx-auto align-items-center shadow-sm card-item': !item.done,
-            'd-flex py-2 mb-3 w-100 mx-auto align-items-center shadow-sm text-decoration-line-through card-item-done': item.done
+            'd-flex py-2 mb-3 w-100 mx-auto align-items-center shadow-sm card-item': !vaccine.done,
+            'd-flex py-2 mb-3 w-100 mx-auto align-items-center shadow-sm text-decoration-line-through card-item-done': vaccine.done
             }
         },
         editDate(index) {
@@ -70,5 +72,8 @@ export default {
 }
 .done-vaccine:hover {
     background-color: gray !important;
+}
+.button:hover {
+    color: gray !important;
 }
 </style>
