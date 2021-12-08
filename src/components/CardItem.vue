@@ -1,7 +1,5 @@
 <template>
-    <div :class="getClass(item)"
-        v-for="(item, index) in this.$store.getters.getVaccine" 
-        :key="item">
+    <div :class="getClass(item)">
         <div @click="doneVaccine(index)" class="bg-warning d-flex align-items-center ms-3 p-2 h-50 rounded done-vaccine">
             <input type="checkbox" :checked="item.done">
         </div>
@@ -30,6 +28,7 @@
 <script>
 export default {
     name: 'CardItem',
+    props: ['item', 'index'],
     methods: {
         removeDate(index) {
             this.$store.dispatch('removeDate', index)

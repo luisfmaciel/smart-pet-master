@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import RegisterPet from '../view/RegisterPet.vue'
 import VaccineCard from '../view/VaccineCard.vue'
+import NotFound from '../components/NotFound.vue'
 
 const routes = [
   {
@@ -13,6 +14,11 @@ const routes = [
     name: 'VaccineCard',
     component: VaccineCard
   },
+  {
+    path: '/:pathMatch(.*)*',
+    name: "NotFound",
+    component: NotFound 
+  }
 ]
 
 const router = createRouter({

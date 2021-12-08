@@ -3,8 +3,8 @@
     <Navbar/>
     <router-view/>
     <Modal/>
+    <Footer/> 
   </div>
-  <Footer/> 
 </template>
 
 <script>

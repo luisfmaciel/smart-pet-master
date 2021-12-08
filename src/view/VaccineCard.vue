@@ -1,5 +1,5 @@
 <template>
-    <div class="">
+    <div>
         <img src="../assets/pet-main.jpg" class="adjust-img position-absolute" alt="pet pattern">
     </div>
     <div class="d-flex row col-md-12 align-items-center bg-light h-100">
@@ -12,7 +12,11 @@
         <div class="col-md-8 adjust-height mt-5 overflow-auto bg-light">
             <h4 class="fw-bold text-center mb-5">Vaccines</h4>
             <div v-if="$store.state.dateVaccine.length > 0">
-                <CardItem/>
+                <CardItem
+                 v-for="(item, index) in this.$store.getters.getVaccine" 
+                    :key="item.id"
+                    :item="item"
+                    :index="index"/>
             </div>
             <div v-else class="text-center">
                 <h4 class="text-dark">Empty List</h4>

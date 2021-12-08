@@ -47,7 +47,6 @@ export default {
     name: 'RegisterPet',
     data() {
         return {
-            pet: {},
             name: '',
             species: '',
             gender: '', 
@@ -58,14 +57,14 @@ export default {
     },
     methods: {
         createPet() {
-            this.pet = {
+            let pet = {
                 name: this.name,
                 species: this.species,
                 birthday: this.birthday,
                 gender: this.gender,
                 weight: this.weight,
             }
-            this.$store.dispatch('createPet', this.pet) 
+            this.$store.dispatch('createPet', pet) 
             router.push({name: 'VaccineCard'})
         }
     }
