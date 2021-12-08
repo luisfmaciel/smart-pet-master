@@ -9,7 +9,6 @@
                 <div class="offcanvas bg-dark offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header text-light">
                         <router-link class="navbar-brand text-warning" :to="{name: 'RegisterPet'}"><span class="fw-bold text-light">Smart</span>Pet</router-link>
-                        
                         <button type="button" class="btn-close bg-light text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">

@@ -11,7 +11,7 @@
         </div>
         <div class="col-md-8 adjust-height mt-5 overflow-auto bg-light">
             <h4 class="fw-bold text-center mb-5">Vaccines</h4>
-            <div v-if="$store.state.dateVaccine.length > 0">
+            <div v-if="this.$store.getters.getVaccine.length > 0">
                 <CardItem
                  v-for="(item, index) in this.$store.getters.getVaccine" 
                     :key="item.id"
